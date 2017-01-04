@@ -1,0 +1,12 @@
+PAM_SSH_SESSION_OPEN %{SYSLOGTIMESTAMP:timestamp} %{HOST:host} %{WORD:pam_process}\[%{NUMBER:pam_process_pid}\]: %{GREEDYDATA:pam_session_info}: session opened for user %{WORD:user} by \(uid=%{NUMBER:uid}\)
+
+PAM_SSH_SESSION_CLOSE %{SYSLOGTIMESTAMP:timestamp} %{HOST:host} %{WORD:pam_process}\[%{NUMBER:pam_process_pid}\]: %{GREEDYDATA:pam_session_info}: session closed for user %{WORD:user}
+
+PAM_AUTH_FAILURE %{SYSLOGTIMESTAMP:timestamp} %{HOST:host} %{WORD:pam_process}: %{DATA:pam_session_info} logname=%{WORD:logname} uid=%{NUMBER:uid} euid=%{NUMBER:euid} tty=%{NOTSPACE:tty} ruser=%{NOTSPACE:ruser} rhost=%{DATA:rhost} user=%{NOTSPACE:user}
+
+PAM_SU_SESSION_OPEN %{SYSLOGTIMESTAMP:timestamp} %{HOST:host} %{WORD:pam_process}: %{DATA:pam_session}: %{DATA:pam_session_info} for user %{WORD:target_user} by %{NOTSPACE:current_user}\(uid=%{NUMBER:uid}\)
+
+PAM_SU_SESSION_CLOSE %{SYSLOGTIMESTAMP:timestamp} %{HOST:host} %{WORD:pam_process}: %{DATA:pam_session}: %{DATA:pam_session_info} for user %{WORD:target_user}
+
+PAM_SU_LOGIN %{SYSLOGTIMESTAMP:timestamp} %{HOST:host} %{WORD:pam_process}: %{GREEDYDATA:pam_session_info}: session opened for user %{WORD:target_user} by %{DATA:current_user}\(uid=%{NUMBER:uid}\)
+

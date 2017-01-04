@@ -1,0 +1,1 @@
+SUDO_LOGS %{SYSLOGTIMESTAMP:timestamp} %{HOST:host} %{WORD:pam_process}:\s* %{WORD:sudo_user}%{GREEDYDATA:sudo_message} TTY=%{DATA:tty} ; PWD=%{DATA:pwd} ; USER=%{WORD:user} ; COMMAND=%{GREEDYDATA:command}

@@ -1,0 +1,8 @@
+# Logstash Patterns for /var/log/secure on CentOS/RHEL equivalent sytems for SSH access
+
+SSH_WRONG_USER Failed %{WORD:ssh_method} for invalid user %{USERNAME:ssh_user} from %{IP:ssh_client_ip} port %{NUMBER:ssh_client_port} (?<ssh_protocol>\w+\d+)
+SSH_WRONG_PASSWD Failed %{WORD:ssh_method} for %{USERNAME:ssh_user} from %{IP:ssh_client_ip} port %{NUMBER:ssh_client_port} (?<ssh_protocol>\w+\d+)
+SSH_CONNECT Accepted %{WORD:ssh_method} for %{USERNAME:ssh_user} from %{IP:ssh_client_ip} port %{NUMBER:ssh_client_port} (?<ssh_protocol>\w+\d+)
+SSH_DISCONNECT Received disconnect from %{IP:ssh_client_ip}: %{NUMBER:client_port}: disconnected by %{USERNAME:user}
+
+

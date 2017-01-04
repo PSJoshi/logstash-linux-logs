@@ -1,0 +1,6 @@
+GROUP_ADD %{SYSLOGTIMESTAMP:timestamp} %{HOST:host} %{WORD:process}\[%{NUMBER:process_pid}\]: %{GREEDYDATA:group_msg}: name=%{WORD:group_name}(?:,\s+GID=%{GREEDYDATA:GID})?
+GROUP_DELETE %{SYSLOGTIMESTAMP:timestamp} %{HOST:host} %{WORD:process}\[%{NUMBER:process_pid}\]: %{GREEDYDATA:group_msg} (?:%{GREEDYDATA:group})?
+ADD_USER %{SYSLOGTIMESTAMP:timestamp} %{HOST:host} %{WORD:process}\[%{NUMBER:process_pid}\]: new user: name=%{WORD:user_name}, UID=%{NUMBER:user_uid}, GID=%{NUMBER:user_gid}, home=%{GREEDYDATA:home_dir}, shell=%{GREEDYDATA:shell}
+ADD_GROUP %{SYSLOGTIMESTAMP:timestamp} %{HOST:host} %{WORD:process}\[%{NUMBER:process_pid}\]: new group: name=%{WORD:user_groupname}, GID=%{NUMBER:user_gid}
+DELETE_USER %{SYSLOGTIMESTAMP:timestamp} %{HOST:host} %{WORD:process}\[%{NUMBER:process_pid}\]: %{DATA:message} %{QUOTEDSTRING:user}
+DELETE_GROUP %{SYSLOGTIMESTAMP:timestamp} %{HOST:host} %{WORD:process}\[%{NUMBER:process_pid}\]: removed group %{QUOTEDSTRING:group} owned by %{QUOTEDSTRING:group_owner}
